@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Our Gallery</title>
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  
+</head>
+<body onselectstart="return false;">
+
+  <!--改写视图，为模板字符串-->
+  <div class="wrap" id="wrap">
+    <!--photo负责平移和旋转-->
+    <div class="photo photo-front" onclick="turn(this)" id="photo_{{index}}">
+      <!--photo-wrap负责翻转-->
+      <div class="photo-wrap">
+        <div class="side side-front">
+          <p class="image"><img src="./images/{{img}}" alt=""></p>
+          <p class="caption">{{caption}}</p>
+        </div>
+        <div class="side side-back">
+          <p class="desc">{{desc}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/action.js"></script>
+  <audio id="bgmusic" src="../music/所念皆星河.mp3" autoplay="autoplay" loop="loop" style="display: block; width: 3%; height:3%;"></audio>
+    <script type="text/javascript">
+  function toggleSound() {
+            var music = document.getElementById("bgmusic");//获取ID
+                console.log(music);
+                console.log(music.paused);
+            if (music.paused) { //判读是否播放
+                music.paused=false;
+                music.play(); //没有就播放
+            }
+
+        }
+setInterval("toggleSound()",1);
+</script>
+
+</body>
+</html>
